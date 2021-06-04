@@ -13,7 +13,7 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile(`${fileName}.md`, data, err => {
+  fs.writeFile(`${fileName}readme.md`, data, err => {
     if (err) { console.log(err) }
     console.log('readme Created!')
   })
@@ -71,7 +71,7 @@ function init() {
     readme += `
     ## Contributors
     ${data.contributors} \n`
-    console.log(readme)
+    //console.log(readme)
     writeToFile(data.title, readme)
   })
   .catch(err => console.log(err))
