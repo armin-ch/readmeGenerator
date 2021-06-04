@@ -1,5 +1,6 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
+const Choices = require('inquirer/lib/objects/choices')
 // array of questions for user
 const questions = [
   'what is the title?',
@@ -7,7 +8,7 @@ const questions = [
   'what is the installation?',
   'what is the usage?',
   'who are the contributors?',
-  'what is the licence type?'
+  'select your licence type'
 ]
 
 // function to write README file
@@ -47,9 +48,10 @@ function init() {
       message: questions[4]
     },
     {
-      type: 'input',
+      type: 'list',
       name: 'license',
-      message: questions[5]
+      message: questions[5],
+      choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None']
     }
   ])
   .then(data=>{
