@@ -66,8 +66,8 @@ ${data.installation} \n`
 ## Usage
 ${data.usage} \n`
     readme += `
-## License 
-${data.license} \n`
+## License
+![${data.license}](https://img.shields.io/badge/license-${data.license}-blue.svg) \n`
     readme += `
 ## Contributors
     ${data.contributors} \n`
