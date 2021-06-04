@@ -12,7 +12,7 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, err => {
+  fs.writeFile(`${fileName}.md`, data, err => {
     if (err) { console.log(err) }
     console.log('readme Created!')
   })
@@ -48,14 +48,29 @@ function init() {
     },
     {
       type: 'input',
-      name: 'licence',
+      name: 'license',
       message: questions[5]
     }
   ])
   .then(data=>{
-    let readme = ''
-    readme += `> ${data.description}`
+    let readme = `# ${data.title} \n`
+    readme += `
+    ## Description
+    > ${data.description} \n`
+    readme += `
+    ### Installing 
+    ${data.installation} \n`
+    readme +=`
+    ## Usage
+    ${data.usage} \n`
+    readme += `
+    ## License 
+    ${data.license} \n`
+    readme += `
+    ## Contributors
+    ${data.contributors} \n`
     console.log(readme)
+    writeToFile(data.title, readme)
   })
   .catch(err => console.log(err))
 }
