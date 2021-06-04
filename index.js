@@ -57,19 +57,19 @@ function init() {
   .then(data=>{
     let readme = `# ${data.title} \n`
     readme += `
-    ## Description
-    > ${data.description} \n`
+## Description
+> ${data.description} \n`
     readme += `
-    ### Installing 
-    ${data.installation} \n`
+### Installing 
+${data.installation} \n`
     readme +=`
-    ## Usage
-    ${data.usage} \n`
+## Usage
+${data.usage} \n`
     readme += `
-    ## License 
-    ${data.license} \n`
+## License 
+${data.license} \n`
     readme += `
-    ## Contributors
+## Contributors
     ${data.contributors} \n`
     //console.log(readme)
     writeToFile(data.title, readme)
